@@ -77,7 +77,6 @@ SYSTEMD_TIMER_FILE_CONTENT = dedent(
 DEFAULT_CONFIG = dedent(
     f"""\
     [{PROGRAM_NAME}]
-    config_dir = "{CONFIG_PATH}"
     cache_dir = "{CACHE_PATH}"
 
     [{PROGRAM_NAME}.servers]
@@ -512,8 +511,6 @@ def combined_config(args, config) -> Namespace:
         print("No configuration found")
     base = config[PROGRAM_NAME]
 
-    if not args.config:
-        args.config = base["config_dir"]
     if not args.cache:
         args.cache = base["cache_dir"]
     args.servers = base["servers"]
