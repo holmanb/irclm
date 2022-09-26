@@ -25,7 +25,7 @@ import aiohttp
 import toml
 
 JSON_VERSION = 1
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 PROGRAM_NAME = "irclm"
 THREADS = 6
 TODAY = date.today()
