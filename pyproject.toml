@@ -27,14 +27,6 @@ isort = "^5.10.1"
 toml = "^0.10.2"
 
 [tool.poetry.scripts]
-pytest = 'scripts:pytest'
-black = 'scripts:black'
-flake = 'scripts:flake'
-pylint = 'scripts:pylint'
-isort = 'scripts:isort'
-all = 'scripts:all'
-format = 'scripts:format'
-tests = 'scripts:tests'
 irclm = 'irclm.irclm:main'
 
 [tool.poetry.group.dev.dependencies]
