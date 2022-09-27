@@ -7,8 +7,12 @@ Manage a local cache of irc logs.
 Getting Started
 ---------------
 
+If no configuration is found, the default one will be created at
+`~/.config/irclm/irclm.toml` to configure.
+
 ```bash
 pip install irclm
+irclm
 $EDITOR ~/.config/irclm/irclm.toml
 irclm
 ```
