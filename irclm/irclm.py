@@ -478,17 +478,12 @@ def get_config(args) -> dict:
             )
             sys.exit(1)
     else:
-        response = input("No config found. Create one at " f"{file_path}? Y/n ") or "y"
-        create = response[0].lower()
-        if "y" == create:
-            with suppress(FileExistsError):
-                os.makedirs(Path(file_path).parent)
-            with open(file_path, "wt", encoding="utf-8") as f:
-                f.write(DEFAULT_CONFIG)
-                print(f"Wrote {file_path}, {len(DEFAULT_CONFIG.encode('utf-8'))} bytes")
-            print("\nConfigure channels in the config file and try again")
-        else:
-            print("Config required to run. Please create a config")
+        with suppress(FileExistsError):
+            os.makedirs(Path(file_path).parent)
+        with open(file_path, "wt", encoding="utf-8") as f:
+            f.write(DEFAULT_CONFIG)
+            print(f"No config found. Wrote default to {file_path}.")
+            print("Configure channels in the config file and rerun.")
         sys.exit(0)
 
 
