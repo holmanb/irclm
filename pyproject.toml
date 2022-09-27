@@ -1,9 +1,17 @@
 [tool.poetry]
 name = "irclm"
 version = "0.0.2"
-description = ""
+description = "IRC Log Manager"
 authors = ["Brett Holman <bholman.devel@gmail.com>"]
 readme = "README.md"
+license = "GPL-2.0-only"
+homepage = "https://github.com/holmanb/irclm"
+repository = "https://github.com/holmanb/irclm"
+keywords = ["irc", "logging", "archive"]
+classifiers = [
+	"Topic :: Communications :: Chat :: Internet Relay Chat",
+]
+
 
 [tool.pylint.'MESSAGES CONTROL']
 disable = [
