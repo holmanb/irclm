@@ -26,7 +26,6 @@ run command from log cache directory
 ```bash
 irclm - grep <key>
 irclm - rg <key>
-irclm - git grep <key>
 ```
 
 Development:

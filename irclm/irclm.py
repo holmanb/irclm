@@ -255,15 +255,8 @@ class Manifest(File):
         self.store = [manifest_path, log_path]
         self.file = File(manifest_path)
         self.cache_path = cache_path
-        self.has_git = not subp(
-            ["git", "--version"], log, cache_path, stdout=DEVNULL, stderr=DEVNULL
-        ).returncode
-        if not self.has_git:
-            log.warning("Install git for file management")
         if Path(manifest_path).is_file():
             self.load()
-        if not Path(CACHE_PATH / ".git").is_dir():
-            subp(["git", "init"], log, cache_path)
 
     def load(self):
         data = {
@@ -293,13 +286,6 @@ class Manifest(File):
             ),
         }
         self.file.write(json.dumps(data, sort_keys=True))
-        if self.has_git:
-            for file in self.store:
-                stats.increment("git_add")
-                subp(["git", "add", str(file)], self.log, self.cache_path)
-
-            stats.increment("git_commit")
-            subp(["git", "commit", "-m", "auto"], self.log, self.cache_path)
         self.log.info(f"Saving manifest {self.file.name}")
 
     def register_file(self, file: File):
